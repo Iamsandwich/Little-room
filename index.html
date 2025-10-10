@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Little room</title>
+  <link rel="icon" type="image/x-icon" href="IMG/Room background 1.png">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+</head>
+<style>
+
+  
+
+</style>
+
+<body style="background-color: bisque;" >
+
+
+    <Div class="draggable" id="drag" style="z-index: 0; top: 300px; left: 500px; position: absolute;">
+        <img src="IMG/Room background 1.png" alt="Beige room" class="draggable">
+    </Div>
+
+    <Div class="draggable" id="drag2" style="z-index: 0; top: 1500px; left: 500px; position: absolute;">
+        <img src="IMG/Carpet 1.png" alt="Purple Carpet" >
+    </Div>
+
+       <Div class="draggable" id="drag3" style="z-index: 0; top: 1500px; left: 50px; position: absolute;">
+        <img  src="IMG/Carpet 2.png" alt="Fuzzy white Carpet" >
+    </Div>
+
+    <Div class="draggable" id="drag4" style="z-index: 0; top: 1500px; left: 1100px; position: absolute;">
+        <img src="IMG/Carpet 3.png" alt="Brick red rectangular Carpet" >
+    </Div>
+
+     <Div class="draggable" id="drag5" style="z-index: 0; top: 1700px; left: 100px; position: absolute;">
+        <img src="IMG/Carpet 4.png" alt="Small pink carpet">
+    </Div>
+
+       <Div class="draggable" id="drag6" style="z-index: 0; top: 1700px; left: 500px; position: absolute;">
+        <img src="IMG/Carpet 5.png" alt="Rectangular patterned carpet" >
+    </Div>
+
+     <Div class="draggable" id="drag7" style="z-index: 0; top: 50px; left: 20px; position: absolute;">
+        <img class="draggable" src="IMG/photo frame 1.png" alt="the kiddos photo in a photo frame">
+    </Div>
+
+
+    <Div  class="draggable" id="drag9" style="z-index: 0; top: 00px; left: 300px; position: absolute;">
+        <img src="IMG/window day left.png" alt="Window during day left">
+    </Div>
+
+    <Div class="draggable" id="drag10" style="z-index: 0; top: 00px; left: 500px; position: absolute;">
+        <img  src="IMG/window day right.png" alt="Window during day right">
+    </Div>
+
+    <Div  class="draggable" id="drag11" style="z-index: 0; top: 0px; left: 750px; position: absolute;">
+    <img  src="IMG/window night left.png" alt="Window during night left" >
+    </Div>
+
+    <Div class="draggable"  id="drag12" style="z-index: 0; top: 0px; left: 950px; position: absolute;">
+        <img  src="IMG/window night right.png" alt="Window during night right">
+    </Div>
+
+      <Div class="draggable" id="drag13" style="z-index: 0; top: 500px; left: 20px; position: absolute;">
+        <img src="IMG/little stool.png" alt="A little round stool">
+    </Div>
+
+     <Div  class="draggable" id="drag14" style="z-index: 0; top: 250px; left: 50px; position: absolute;">
+    <img  src="IMG/wall clock 1.png" alt="digital wall clock" >
+    </Div>
+
+
+    <Div class="draggable" id="drag15" style="z-index: 1; top: 700px; left: 50px; position: absolute;">
+    <img src="IMG/Little cactus 1.png" alt="Little cactus 1">
+    </Div>
+
+    <Div class="draggable" id="drag16" style="z-index: 1; top: 700px; left: 180px; position: absolute;">
+    <img src="IMG/plant in a green pot.png" alt="plant in a green pot">
+    </Div>
+
+     <Div class="draggable" id="drag17" style="z-index: 0; top: 20px; left: 1200px; position: absolute;">
+    <img src="IMG/rectangular table.png" alt="rectangular table">
+    </Div>
+
+    <Div class="draggable" id="drag18" style="z-index: 0; top: 250px; left: 150px; position: absolute;">
+    <img src="IMG/purple analog clock.png" alt="purple analog clock">
+    </Div>
+
+    <Div class="draggable" id="drag19" style="z-index: 2; top: 400px; left: 20px; position: absolute;">
+    <img src="IMG/gamechild.png" alt="gamechild">
+    </Div>
+
+    <Div class="draggable" id="drag20" style="z-index: 2; top: 400px; left: 300px; position: absolute;">
+    <img src="IMG/flower.png" alt="flower">
+    </Div>
+
+
+</body>
+<script>
+  $(document).ready(function() {
+  $(".draggable").draggable();
+});
+</script>
+
+
+<script>
+
+    //Make the DIV element draggagle:
+    //dragElement(document.getElementsByClassName("draggable"));
+   
+dragElement(document.getElementsByClassName('draggable'));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  //if (document.getElementById(elmnt.id)) {
+    /* if present, the header is where you move the DIV from:*/
+  //  document.getElementById(elmnt.id).onpointerdown = dragMouseDown;
+ // } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onpointerdown = dragMouseDown;
+}
+
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onpointerup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onpointermove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onpointerup = null;
+    document.onpointermove = null;
+  }
+
+
+</script>
