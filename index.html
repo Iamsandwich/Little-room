@@ -6,7 +6,9 @@
   <link rel="icon" type="image/x-icon" href="IMG/Room background 1.png">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.17/interact.min.js"></script>
+
 </head>
 <style>
 
@@ -16,7 +18,7 @@
 
 <body style="background-color: bisque;" >
 
-
+<div id="thedrag">
     <Div class="draggable" id="drag" style="z-index: 0; top: 300px; left: 500px; position: absolute;">
         <img src="IMG/Room background 1.png" alt="Beige room" class="draggable">
     </Div>
@@ -95,12 +97,15 @@
     <img src="IMG/flower.png" alt="flower">
     </Div>
 
+    
 
+    </div>
 </body>
+
 <script>
-  $(document).ready(function() {
-  $(".draggable").draggable();
-});
+ // $(document).ready(function() {
+//  $(".draggable").draggable();
+ //});
 </script>
 
 
@@ -108,8 +113,11 @@
 
     //Make the DIV element draggagle:
     //dragElement(document.getElementsByClassName("draggable"));
-   
-dragElement(document.getElementsByClassName('draggable'));
+let parent = document.getElementById('thedrag');   
+let  childrens = parent.children;
+console.log(parent.children);
+
+dragElement(parent.children);
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   //if (document.getElementById(elmnt.id)) {
@@ -152,4 +160,36 @@ function dragElement(elmnt) {
   }
 
 
+
+
+// here you tell InteractJS which class of items you'd like to be draggable
+interact('.draggable')
+  .draggable({
+    listeners: {
+      // when a user drags the object ('on dragmove') run this function
+      move: dragMoveListener,
+      // call this function on every dragend event
+      end (event) {
+        console.log("item dropped!")
+      }
+    }
+  })
+
+function dragMoveListener (event) {
+  // all this stuff gets the position of the item while it's being dragged
+  var target = event.target
+  // keep the dragged position in the data-x/data-y attributes
+  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+  // translate the element
+  target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+  // update the position attributes
+  target.setAttribute('data-x', x)
+  target.setAttribute('data-y', y)
+}
+
+// this function is used later in the resizing and gesture demos
+window.dragMoveListener = dragMoveListener
 </script>
