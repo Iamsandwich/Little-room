@@ -5,10 +5,14 @@
   <title>Little room</title>
   <link rel="icon" type="image/x-icon" href="IMG/Room background 1.png">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.17/interact.min.js"></script>
 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 
+<script src="https://rawgit.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>
 </head>
 <style>
 
@@ -17,6 +21,8 @@
 </style>
 
 <body style="background-color: bisque;" >
+  <button type="button" onclick="Dark()" style="border-color: gray; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; height: 50px; border-radius: 20px; position:absolute; top: 50px; left: 2000px; background-color: rgb(16, 59, 59); color: antiquewhite;">Dark mode</button>
+   <button type="button" onclick="Light()" style="border-color: purple; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  height: 50px; border-radius: 20px;  position:absolute; top: 120px; left: 2000px; background-color: rgb(245, 207, 243); color: rgb(94, 45, 106);">Light mode</button>
 
 <div id="thedrag">
     <Div class="draggable" id="drag" style="z-index: 0; top: 300px; left: 500px; position: absolute;">
@@ -97,7 +103,74 @@
     <img src="IMG/flower.png" alt="flower">
     </Div>
 
-    
+    <Div class="draggable" id="drag21" style="z-index: 2; top: 400px; left: 300px; position: absolute;">
+    <img src="IMG/ceiling lamp.png" alt="ceiling lamp">
+    </Div>
+
+    <Div class="draggable" id="drag22" style="z-index: 0; top: 50px; left: 1600px; position: absolute;">
+    <img src="IMG/shelf right.png" alt="shelf right">
+    </Div>
+
+    <Div class="draggable" id="drag23" style="z-index: 2; top: 300px; left: 320px; position: absolute;">
+    <img src="IMG/little clock.png" alt="little clock">
+    </Div>
+
+    <Div class="draggable" id="drag24" style="z-index: 2; top: 300px; left: 500px; position: absolute;">
+    <img src="IMG/cactus pot.png" alt="cactus pot">
+    </Div>
+
+    <Div class="draggable" id="drag25" style="z-index: 2; top: 200px; left: 1600px; position: absolute;">
+    <img src="IMG/beanbag purple.png" alt="beanbag purple">
+    </Div>
+
+    <Div class="draggable" id="drag26" style="z-index: 2; top: 200px; left: 1900px; position: absolute;">
+    <img src="IMG/beanbag red.png" alt="beanbag red">
+    </Div>
+
+    <Div class="draggable" id="drag27" style="z-index: 2; top: 500px; left: 1700px; position: absolute;">
+    <img src="IMG/aquarium.png" alt="aquarium">
+    </Div>
+
+    <Div class="draggable" id="drag28" style="z-index: 2; top: 500px; left: 1920px; position: absolute;">
+    <img src="IMG/wall flower lamp right.png" alt="wall flower lamp right">
+    </Div>
+
+    <Div class="draggable" id="drag29" style="z-index: 2; top: 500px; left: 2100px; position: absolute;">
+    <img src="IMG/wall flower lamp left.png" alt="wall flower lamp left">
+    </Div>
+
+    <Div class="draggable" id="drag30" style="z-index: 3; top: 800px; left: 1700px; position: absolute;">
+    <img src="IMG/Harvest.png" alt="Harvest">
+    </Div>
+
+    <Div class="draggable" id="drag31" style="z-index: 3; top: 800px; left: 1900px; position: absolute;">
+    <img src="IMG/Harvest sitting.png" alt="Harvest sitting">
+    </Div>
+
+    <Div class="draggable" id="drag32" style="z-index: 3; top: 800px; left: 2100px; position: absolute;">
+    <img src="IMG/Wayne.png" alt="Wayne">
+    </Div>
+
+    <Div class="draggable" id="drag33" style="z-index: 3; top: 800px; left: 2300px; position: absolute;">
+    <img src="IMG/Wayne sitting.png" alt="Wayne sitting">
+    </Div>
+
+    <Div class="draggable" id="drag34" style="z-index: 3; top: 800px; left: 360px; position: absolute;">
+    <img src="IMG/tiny plate.png" alt="Tiny plate">
+    </Div>
+
+    <Div class="draggable" id="drag35" style="z-index: 3; top: 700px; left: 350px; position: absolute;">
+    <img src="IMG/purple mug.png" alt="purple mug">
+    </Div>
+
+    <Div class="draggable" id="drag36" style="z-index: 3; top: 1000px; left: 30px; position: absolute;">
+    <img src="IMG/Branch vase.png" alt="Branch vase">
+    </Div>
+
+    <Div class="draggable" id="drag37" style="z-index: 3; top: 730px; left: 430px; position: absolute;">
+    <img src="IMG/cup.png" alt="cup">
+    </Div>
+
 
     </div>
 </body>
@@ -106,6 +179,20 @@
 $(document).ready(function() {
  $(".draggable").draggable();
 });
+</script>
+
+<script>
+function Dark()
+{   
+document.body.style.backgroundColor= "#4F4443";
+}
+
+function Light()
+{   
+document.body.style.backgroundColor= "bisque";
+}
+</script>
+
 </script>
 
 
